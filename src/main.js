@@ -1,3 +1,4 @@
+import { initI18n } from './i18n.js';
 // Démarrage de Haiku.
 
 import './style.css';
@@ -10,6 +11,8 @@ import { renderLock, hideLock, setUnlockHandler } from './ui/lock.js';
 import { buildShell, resetShell, handleBack, openPalette, app, newItemMenu } from './app.js';
 import { onLifecycle, setSecureScreen, isNative, autofill } from './platform.js';
 import { loadDictionary } from './core/strength.js';
+
+initI18n({ app: 'haiku', exclude: ['.vault-grid', '.vault-card .title', '.entry-title'] });
 
 export async function playIntro(replay = false) {
   const el = document.getElementById('intro');
